@@ -1,5 +1,5 @@
 # PRIMER PARCIAL SPD
-![ArduinoTinkercad](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/93506768-e7cd-4a04-97b3-7a5b177f268f)
+![ArduinoTinkercad](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/7484325e-8708-4f26-8f15-d5f662a15d8a)
 
 ## INTEGRANTES
 + Braian Catriel Gatto
@@ -7,7 +7,8 @@
 + Rocío Gómez
 
 ## PROYECTO - PARTE 1: Contador de 0 a 99 con Display 7 Segmentos y Multiplexación
-![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/a955320f-296a-4ed7-a3f6-963cff05f1d8)
+![part1](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/db9afa65-e152-49b8-ad2c-3fb52d3a5ddb)
+
 ### I. DESCRIPCIÓN: 
 Se trata de un **contador de dos dígitos a partir de dos displays de siete segmentos** que se controlan por medío de **tres botones**, uno para **aumentar** el contador, otro para **disminuirlo** y otro para **reiniciarlo**.
 La _estructura básica_ del código es la siguiente:
@@ -37,9 +38,6 @@ int keypressed(void)
   if (upBtn)
   {
     upBtnPreview = 1;
-    /* si se lee el pin y me devuelve True (que significa que el botón
-    NO está siendo presionado), el estado anterior del botón
-    queda en True, o sea, que NO está presionado. Se repite abajo la misma lógica */
   }
   if(downBtn)
   {
@@ -50,10 +48,10 @@ int keypressed(void)
     resetBtnPreview = 1;
   }
   
-  if(upBtn == 0 && upBtn != upBtnPreview) //si se presiona el botón...
+  if(upBtn == 0 && upBtn != upBtnPreview)
     {
       upBtnPreview = upBtn;
-      return UP; // devuelve la info de que el botón ha sido apretado
+      return UP;
     }
   if(downBtn == 0 && downBtn !=  downBtnPreview)
     {
