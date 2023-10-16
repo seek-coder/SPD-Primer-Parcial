@@ -77,12 +77,12 @@ void loop()
     countDigit++; // subir en (1) el valor del contador
     Serial.println(countDigit);
   }
-  if(pressedState == DOWN)
+  else if(pressedState == DOWN)
   {
     countDigit--; // bajar en (1) el valor del contador
     Serial.println(countDigit);
   }
-  if(pressedState == RESET)
+  else if(pressedState == RESET)
   {
     countDigit = 0; // resetear el contador
     Serial.println(countDigit);
@@ -296,4 +296,3 @@ void printCount(int count)
   printDigit(count - 10 * ((int)count/10)); // obtengo el valor de la unidad
   turnDigitOn(ONE); // prendo la unidad
 }
-
