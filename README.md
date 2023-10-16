@@ -88,14 +88,14 @@ Se podría agregar al proyecto un [motor de aficionado](https://techmake.com/blo
 Video explicativo (no es de nuestra autoría): [Control de motor de aficionado](https://youtu.be/srCOkz9Xgco)
 
 ##
-## PROYECTO - PARTE 3: Modificación según el Último Número de Documento (0-3, fotoresistencia)
+## PROYECTO - PARTE 3: Modificación según el Último Número de Documento (0-3, fotorresistencia)
 ![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/f3738b97-43c2-48f6-b016-06551aa470bc)
 
 
 ### I. DESCRIPCIÓN:
-A la parte (2) le hemos agregado una [fotoresistencia](https://blog.330ohms.com/2020/05/16/como-conectar-una-fotoresistencia-ldr-a-arduino/) que no es más que una resistencia cuyo voltaje disminuye o aumenta en función a la intensidad de luz que incide sobre ella.
+A la parte (2) le hemos agregado una [fotorresistencia](https://blog.330ohms.com/2020/05/16/como-conectar-una-fotoresistencia-ldr-a-arduino/) que no es más que una resistencia cuyo voltaje disminuye o aumenta en función a la intensidad de luz que incide sobre ella.
 
-Armamos un divisor de voltaje: desde la terminal n°1 alimentamos con 5V al componente y desde la terminal n°2 sacamos un cable hacia el primer polo de una resistencia de 220. El primer polo se conecta a la vez a la entrada analógica, y el otro polo se conecta a tierra. La señal entonces se toma del punto de conexión entre la fotoresistencia y la resistencia de 220. No hay necesidad alguna de declarar una función puesto que a partir del circuito electrónico lo único necesario para obtener algún tipo de dato es la lectura de la entrada analógica, que en este caso devuelve valores entre 1 (que corresponde a 5V) y 310 (que corresponde a 3,5V) que significa el rango de valores de voltaje proporcional a la cantidad de luz que incide sobre la fotoresistencia. Mientras más luz haya, menos es el valor del voltaje. Si intercambiamos los cables de 5V y GND, mientras más luz haya, mayor es el valor del voltaje. Sin la resistencia adicional de 220 despues del primer cable de la terminal n°2, la entrada analógica no me devolvería nada porque no hay división de voltaje.
+Armamos un divisor de voltaje: desde la terminal n°1 alimentamos con 5V al componente y desde la terminal n°2 sacamos un cable hacia el primer polo de una resistencia de 220. El primer polo se conecta a la vez a la entrada analógica, y el otro polo se conecta a tierra. La señal entonces se toma del punto de conexión entre la fotorresistencia y la resistencia de 220. No hay necesidad alguna de declarar una función puesto que a partir del circuito electrónico lo único necesario para obtener algún tipo de dato es la lectura de la entrada analógica, que en este caso devuelve valores entre 1 (que corresponde a 5V) y 310 (que corresponde a 3,5V) que significa el rango de valores de voltaje proporcional a la cantidad de luz que incide sobre la fotorresistencia. Mientras más luz haya, menos es el valor del voltaje. Si intercambiamos los cables de 5V y GND, mientras más luz haya, mayor es el valor del voltaje. Sin la resistencia adicional de 220 despues del primer cable de la terminal n°2, la entrada analógica no me devolvería nada porque no hay división de voltaje.
 
 ### II. LINK AL PROYECTO
 [SPD - Primer parcial - Proyecto de Arduino, Parte3](https://www.tinkercad.com/things/k21l70HxwcG-copy-of-seven-segment-count-part2/editel?sharecode=muBkuZ4jJGfd1-6pEOlMxBX-XCLBhKj4twv_DhFgKwo)
