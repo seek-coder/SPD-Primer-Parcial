@@ -23,49 +23,66 @@ La _estructura básica_ del código es la siguiente:
 
 El trabajo de electrónica cuenta con [multiplexación](https://www.uazuay.edu.ec/sistemas/teleprocesos/multiplexacion) y logra evitar ruidos de señal como el [debounce](https://www.murkyrobot.com/guias/arduino/debounce)
 ### II. FUNCIÓN PRINCIPAL:
-La función que se encarga de la lógica principal del programa, ```loop()``` ha de ser la función más importante del mismo, porque define su lógica. Se declara una variable que almacena lo que devuelva la función ```keypressed()``` y a partir de ahí, se comprueban valores que permiten incrementar, decrementar o reiniciar el contador general. Sin embargo, hay que hacer notar que la función ```keypressed()``` es prácticamente igual de relevante, no sólo por su utilidad sino por que el bucle inicial depende de sus resultados. Con el fin de obviar la relevancia del bucle inicial (con el cual ningún código de Arduino funcionaría realmente), determinaremos la función ```keypressed()``` como la principal. 
+La función que se encarga de la lógica principal del programa, ```loop()``` ha de ser la función más importante del mismo, porque define la lógica que se itera todo el programa. A partir de ahí, se comprueban valores que permiten incrementar, decrementar o reiniciar el contador general. Sin embargo, hay que hacer notar que la función ```printCount()``` es prácticamente igual de relevante, no sólo porque me permite mostrar unidades y decenas secuencialmente sino porque el bucle inicial depende de sus resultados. Con el fin de obviar la relevancia del bucle inicial (con el cual ningún código de Arduino funcionaría realmente), determinaremos la función ```printCount()``` como la principal. 
 La _estructura básica_ de la función es la siguiente:
-  1) se establece el valor de cada botón según variables previamente definidas
-  2) se comprueba el estado de los botones (no presionado por defecto)
-  3) se devuelven los valores específicos según cada caso de botón presionado: si se incrementa el contador, si disminuye, si se reinicia o si no se presiona nada.
+  1) se apagan los displays
+  2) se obtiene el valor de la decena mediante la división del entero count por diez (por ejemplo, si el numero es 23 me quedo con la parte entera al dividir, que es 2) y se prende la decena
+  3) se apagan los displays
+  4) se obtiene el valor de la unidad mediante el calculo del entero count menos diez por el parseo del cálculo anteriormente mencionado  (por ejemplo, si el numero es 23 me quedo con la parte de la unidad al calcular, que es ) y se prende la decena
 ```python3
-int keypressed(void)
+void printCount(int count) 
 {
-  upBtn = digitalRead(UP);
-  downBtn = digitalRead(DOWN);
-  resetBtn = digitalRead(RESET);
-  
-  if (upBtn)
-  {
-    upBtnPreview = 1;
-  }
-  if(downBtn)
-  {
-    downBtnPreview = 1;
-  }
-  if(resetBtn)
-  {
-    resetBtnPreview = 1;
-  }
-  
-  if(upBtn == 0 && upBtn != upBtnPreview)
-    {
-      upBtnPreview = upBtn;
-      return UP;
-    }
-  if(downBtn == 0 && downBtn !=  downBtnPreview)
-    {
-      downBtnPreview = downBtn;
-      return DOWN;
-    }
-  if(resetBtn == 0 && resetBtn != resetBtnPreview)
-    {
-      resetBtnPreview = resetBtn;
-      return RESET;
-    }
-  return 0;
+  turnDigitOn(ALLOFF);
+  printDigit(count/10);
+  turnDigitOn(TEN);
+  turnDigitOn(ALLOFF);
+  printDigit(count - 10 * ((int)count/10));
+  turnDigitOn(ONE);
 }
 ```
 ## III. LINK AL PROYECTO
 [SPD - Primer parcial - Proyecto de Arduino, Parte1](https://www.tinkercad.com/things/bEkxNiuQiZa-seven-segment-count-part1/editel?sharecode=vG5uMc3atoVj3arptUi8D7p_fGtIZmHsku-pPS9-IcI)
+##
+## PROYECTO - PARTE 2: Modificador con interruptor deslizante y números primos + sensor de temperatura
+![Sin título](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/b6f40232-5ccb-44e2-b346-1e536ab64746)
 
+### I. DESCRIPCIÓN:
+A la parte (1) le hemos agregado un interruptor deslizante que funciona de manera tal que deslizado hacia abajo permite mostrar secuencialmente todos los números del contador de la misma forma que hacía el anterior programa y deslizado hacia arriba muestra en el display únicamente aquellos números que sean primos, es decir, que sólo sean divisibles entre 1(uno) y sí mismo. Para esto se declaró una nueva función de nombre  ```primeDetect()```.
+
+Además, se ha añadido un [sensor de temperatura](https://cursos.mcielectronics.cl/2022/08/01/como-utilizar-el-sensor-de-temperatura-tmp36-tutorial-de-arduino/) que funciona transcribiendo mediante un mapeo la información del tipo analógica que reciba a grados celsius. Para esto se declaró una nueva función de nombre  ```getTemp()```.
+
+### II. FUNCIÓN PRINCIPAL
+La función que resulta más relevante en el sentido de las nuevas modificaciones es la de  ```primeDetect()``` porque cambia rotundamente el enfoque del display, trabajando ahora en dos modos: uno de numeros enteros y otro de numeros primos.
+La _estructura básica_ de la función es la siguiente:
+  1) se declara una variable del tipo booleana y se especifica como 'true' sólo con fines demostrativos (se podría simplemente declarar sin igualarla a true)
+  2) se inicia un bucle 'for' que evalua si el entero pasado a la función tiene más de dos divisores aparte de 1(uno) y de sí mismo. Si es así, se devuelve 'isPrime' como falsa y se rompe el bucle porque ya al tener un divisor adicional el número deja de ser primo.
+  3) si no se encuentran divisores adicionales, el numero es en efecto primo
+  4) se devuelve el valor de falsedad o verdad de la variable 'isPrime'
+  5) en base a los resultados, se prenderán o apagarán los displays en el modo de números primos
+ ```python3
+bool primeDetect(int digit)
+{
+  bool isPrime = true;
+  
+  for(int i = 2; i < digit; i++)
+  {
+    if (digit % i == 0)
+    {
+      isPrime = false;
+      break;
+    }
+  }
+  
+  return isPrime;
+}
+ ```
+### III. LINK AL PROYECTO
+[SPD - Primer parcial - Proyecto de Arduino, Parte2](https://www.tinkercad.com/things/cFFcPNF4vUZ-seven-segment-count-part2/editel?sharecode=gnk3IzuNeZl5fRzr58Z-PGeYiKratSyNbOlEUdtaQCA)
+
+### IV. SUGERENCIA DE COMPONENTE ADICIONAL
+![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/87377c12-3684-44a5-8d99-e1ad2e115966)
+
+
+Se podría agregar al proyecto un [motor de aficionado](https://techmake.com/blogs/tutoriales/empezando-con-arduino-5a-motores-dc) que permita controlar, por ejemplo, ruedas integradas al Arduino de manera tal que pueda moverse por una zona e ir detectando las diferentes variaciones de temperaturas de la misma. Para controlar un motor de corriente continúa con Arduino, generalmente se utiliza un puente H (H-bridge) o un módulo de control de motor.
+
+Video explicativo (no es de nuestra autoría): [Control de motor de aficionado](https://youtu.be/srCOkz9Xgco)
