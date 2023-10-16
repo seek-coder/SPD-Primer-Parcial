@@ -67,5 +67,5 @@ int keypressed(void)
 }
 ```
 ## III. LINK AL PROYECTO
-[SPD - Primer parcial - Proyecto de Arduino, Parte1](https://www.tinkercad.com/things/bEkxNiuQiZa-copy-of-seven-segment-count/editel?sharecode=vG5uMc3atoVj3arptUi8D7p_fGtIZmHsku-pPS9-IcI)
+[SPD - Primer parcial - Proyecto de Arduino, Parte1](https://www.tinkercad.com/things/bEkxNiuQiZa-seven-segment-count-part1/editel?sharecode=vG5uMc3atoVj3arptUi8D7p_fGtIZmHsku-pPS9-IcI&sharecode=vG5uMc3atoVj3arptUi8D7p_fGtIZmHsku-pPS9-IcI)
 
