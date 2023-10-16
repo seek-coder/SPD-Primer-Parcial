@@ -41,7 +41,7 @@ void printCount(int count)
 }
 ```
 ## III. LINK AL PROYECTO
-[SPD - Primer parcial - Proyecto de Arduino, Parte1](https://www.tinkercad.com/things/bEkxNiuQiZa-seven-segment-count-part1/editel?sharecode=vG5uMc3atoVj3arptUi8D7p_fGtIZmHsku-pPS9-IcI)
+[SPD - Primer parcial - Proyecto de Arduino, Parte1](https://www.tinkercad.com/things/bEkxNiuQiZa)
 ##
 ## PROYECTO - PARTE 2: Modificador con interruptor deslizante y números primos + sensor de temperatura
 ![Sin título](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/b6f40232-5ccb-44e2-b346-1e536ab64746)
@@ -77,7 +77,7 @@ bool primeDetect(int digit)
 }
  ```
 ### III. LINK AL PROYECTO
-[SPD - Primer parcial - Proyecto de Arduino, Parte2](https://www.tinkercad.com/things/cFFcPNF4vUZ-seven-segment-count-part2/editel?sharecode=gnk3IzuNeZl5fRzr58Z-PGeYiKratSyNbOlEUdtaQCA)
+[SPD - Primer parcial - Proyecto de Arduino, Parte2](https://www.tinkercad.com/things/cFFcPNF4vUZ)
 
 ### IV. SUGERENCIA DE COMPONENTE ADICIONAL
 ![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/87377c12-3684-44a5-8d99-e1ad2e115966)
@@ -98,4 +98,4 @@ A la parte (2) le hemos agregado una [fotorresistencia](https://blog.330ohms.com
 Armamos un divisor de voltaje: desde la terminal n°1 alimentamos con 5V al componente y desde la terminal n°2 sacamos un cable hacia el primer polo de una resistencia de 220. El primer polo se conecta a la vez a la entrada analógica, y el otro polo se conecta a tierra. La señal entonces se toma del punto de conexión entre la fotorresistencia y la resistencia de 220. No hay necesidad alguna de declarar una función puesto que a partir del circuito electrónico lo único necesario para obtener algún tipo de dato es la lectura de la entrada analógica, que en este caso devuelve valores entre 1 (que corresponde a 5V) y 310 (que corresponde a 3,5V) que significa el rango de valores de voltaje proporcional a la cantidad de luz que incide sobre la fotorresistencia. Mientras más luz haya, menos es el valor del voltaje. Si intercambiamos los cables de 5V y GND, mientras más luz haya, mayor es el valor del voltaje. Sin la resistencia adicional de 220 despues del primer cable de la terminal n°2, la entrada analógica no me devolvería nada porque no hay división de voltaje.
 
 ### II. LINK AL PROYECTO
-[SPD - Primer parcial - Proyecto de Arduino, Parte3](https://www.tinkercad.com/things/k21l70HxwcG-copy-of-seven-segment-count-part2/editel?sharecode=muBkuZ4jJGfd1-6pEOlMxBX-XCLBhKj4twv_DhFgKwo)
+[SPD - Primer parcial - Proyecto de Arduino, Parte3](https://www.tinkercad.com/things/k21l70HxwcG)
