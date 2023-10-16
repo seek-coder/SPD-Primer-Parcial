@@ -1,5 +1,5 @@
 // C++ code
-//
+// 
 // SPD PRIMER PARCIAL, PARTE 1
 // Braian Catriel Gatto, 2023
 
@@ -30,9 +30,9 @@
 int countDigit = 0;
 
 // banderas para cada estado. 1 == no presionado (valor por defecto); 0 == presionado
-int upBtn = 1;
+int upBtn = 1; 
 int upBtnPreview = 1; /* almacena el estado anterior de los botones para comparar y
-                   determinar si se presionó el botón */
+				   determinar si se presionó el botón */
 int downBtn = 1;
 int downBtnPreview = 1;
 
@@ -40,67 +40,67 @@ int resetBtn = 1;
 int resetBtnPreview = 1;
 
 // ---------------------------------------- //
-
+ 
 // 2. establezco la configuración principal
 void setup()
 {
-    /* si uso INPUT acá para los botones, cuando está conectado a 5V lee True y cuando
-    está conectado a 0V lee False. Pero si no está conectado, devuelve valores
-    randoms alternando entre 1 y 0. Así que es mejor usar la resistencia pull-up
-     interna de Arduino para evitar este tipo de ruido */
-
-    pinMode(DOWN, INPUT_PULLUP);
-    pinMode(UP, INPUT_PULLUP);
-    pinMode(RESET, INPUT_PULLUP);
-    pinMode(C, OUTPUT);
-    pinMode(D, OUTPUT);
-    pinMode(E, OUTPUT);
-    pinMode(F, OUTPUT);
-    pinMode(G, OUTPUT);
-    pinMode(A, OUTPUT);
-    pinMode(B, OUTPUT);
-    pinMode(TEN, OUTPUT);
-    pinMode(ONE, OUTPUT);
-    Serial.begin(9600);
+  /* si uso INPUT acá para los botones, cuando está conectado a 5V lee True y cuando
+   está conectado a 0V lee False. Pero si no está conectado, devuelve valores
+   randoms alternando entre 1 y 0. Así que es mejor usar la resistencia pull-up
+   interna de Arduino para evitar este tipo de ruido */
+  
+  pinMode(DOWN, INPUT_PULLUP); 
+  pinMode(UP, INPUT_PULLUP);
+  pinMode(RESET, INPUT_PULLUP);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(TEN, OUTPUT);
+  pinMode(ONE, OUTPUT);
+  Serial.begin(9600);
 }
 
 // ---------------------------------------- //
 
 // 3. declaro función bucle principal
-void loop()
+void loop() 
 {
-    // declaro variable int que almacena lo que me devuelva la función keypressed()
-    int pressedState = keypressed();
-    // compruebo los valores que me haya devuelto la función keypressed() y resuelvo
-    if (pressedState == UP) // si el upBtn ha sido apretado...
-    {
-        countDigit++; // subir en (1) el valor del contador
-        Serial.println(countDigit);
-    }
-    if (pressedState == DOWN)
-    {
-        countDigit--; // bajar en (1) el valor del contador
-        Serial.println(countDigit);
-    }
-    if (pressedState == RESET)
-    {
-        countDigit = 0; // resetear el contador
-        Serial.println(countDigit);
-    }
-
-    // verifico y corrijo en los extremos -1 y 100
-    if (countDigit < 0)
-    {
-        countDigit = 99;
-        Serial.println(countDigit);
-    }
-    else if (countDigit > 99)
-    {
-        countDigit = 0;
-        Serial.println(countDigit);
-    }
-
-    printCount(countDigit);
+  // declaro variable int que almacena lo que me devuelva la función keypressed()
+  int pressedState = keypressed();
+  // compruebo los valores que me haya devuelto la función keypressed() y resuelvo
+  if(pressedState == UP) // si keypressed() me devuelve UP / si el upBtn ha sido apretado...
+  {
+    countDigit++; // subir en (1) el valor del contador
+    Serial.println(countDigit);
+  }
+  if(pressedState == DOWN)
+  {
+    countDigit--; // bajar en (1) el valor del contador
+    Serial.println(countDigit);
+  }
+  if(pressedState == RESET)
+  {
+    countDigit = 0; // resetear el contador
+    Serial.println(countDigit);
+  }
+  
+  // verifico y corrijo en los extremos -1 y 100
+  if(countDigit < 0)
+  {
+    countDigit = 99;
+    Serial.println(countDigit);
+  }
+  else if(countDigit > 99)
+  {
+    countDigit = 0;
+    Serial.println(countDigit);
+  }
+  
+  printCount(countDigit); // muestro el valor del contador en el display
 }
 
 // ---------------------------------------- //
@@ -109,183 +109,191 @@ void loop()
 
 void printDigit(int digit) // la función espera valores entre 0 y 9
 {
-    // controlo los leds
-    digitalWrite(A, LOW);
-    digitalWrite(B, LOW);
-    digitalWrite(C, LOW);
-    digitalWrite(D, LOW);
-    digitalWrite(E, LOW);
-    digitalWrite(F, LOW);
-    digitalWrite(G, LOW);
-
-    switch (digit)
-    {
+  // controlo los leds
+  
+  // PRIMERO, APAGO TODOS
+  digitalWrite(A, LOW);
+  digitalWrite(B, LOW);
+  digitalWrite(C, LOW);
+  digitalWrite(D, LOW);
+  digitalWrite(E, LOW);
+  digitalWrite(F, LOW);
+  digitalWrite(G, LOW);
+  
+  // SEGUNDO, PRENDO SEGÚN EL CASO
+  
+  switch(digit) 
+  {
     case 1:
-        digitalWrite(B, HIGH);
+   		digitalWrite(B, HIGH);
         digitalWrite(C, HIGH);
-        break;
+    	break;
     case 2:
-        digitalWrite(A, HIGH);
-        digitalWrite(B, HIGH);
-        digitalWrite(G, HIGH);
+    	digitalWrite(A, HIGH);
+    	digitalWrite(B, HIGH);
+    	digitalWrite(G, HIGH);
         digitalWrite(E, HIGH);
         digitalWrite(D, HIGH);
-        break;
+    	break;
     case 3:
-        digitalWrite(A, HIGH);
-        digitalWrite(B, HIGH);
+    	digitalWrite(A, HIGH);
+    	digitalWrite(B, HIGH);
         digitalWrite(C, HIGH);
         digitalWrite(D, HIGH);
         digitalWrite(G, HIGH);
-        break;
+    	break;
     case 4:
         digitalWrite(F, HIGH);
-        digitalWrite(G, HIGH);
+    	digitalWrite(G, HIGH);
         digitalWrite(B, HIGH);
         digitalWrite(C, HIGH);
-        break;
+    	break;
     case 5:
         digitalWrite(A, HIGH);
-        digitalWrite(F, HIGH);
+    	digitalWrite(F, HIGH);
         digitalWrite(G, HIGH);
         digitalWrite(C, HIGH);
         digitalWrite(D, HIGH);
-        break;
+    	break;
     case 6:
         digitalWrite(A, HIGH);
-        digitalWrite(G, HIGH);
+    	digitalWrite(G, HIGH);
         digitalWrite(C, HIGH);
         digitalWrite(D, HIGH);
         digitalWrite(E, HIGH);
         digitalWrite(F, HIGH);
-        break;
+    	break;
     case 7:
         digitalWrite(A, HIGH);
-        digitalWrite(B, HIGH);
+    	digitalWrite(B, HIGH);
         digitalWrite(C, HIGH);
-        break;
-    case 8:
+    	break;
+	case 8:
         digitalWrite(A, HIGH);
-        digitalWrite(B, HIGH);
+    	digitalWrite(B, HIGH);
         digitalWrite(C, HIGH);
         digitalWrite(D, HIGH);
         digitalWrite(E, HIGH);
         digitalWrite(F, HIGH);
-        digitalWrite(G, HIGH);
-        break;
+    	digitalWrite(G, HIGH);
+    	break;
     case 9:
-        digitalWrite(A, HIGH);
-        digitalWrite(B, HIGH);
+    	digitalWrite(A, HIGH);
+    	digitalWrite(B, HIGH);
         digitalWrite(C, HIGH);
         digitalWrite(D, HIGH);
         digitalWrite(F, HIGH);
-        digitalWrite(G, HIGH);
-        break;
+    	digitalWrite(G, HIGH);
+    	break;
     case 0:
-        digitalWrite(A, HIGH);
-        digitalWrite(B, HIGH);
+    	digitalWrite(A, HIGH);
+    	digitalWrite(B, HIGH);
         digitalWrite(C, HIGH);
         digitalWrite(D, HIGH);
         digitalWrite(E, HIGH);
         digitalWrite(F, HIGH);
-        break;
-    }
+    	break;
+  }
 }
 
 // ---------------------------------------- //
 
-// 5. declaro función para detectar si se han apretado los botones
+// 5. declaro función para detectar si se han apretado los botones (para evitar que al mantener el botón se modifique infinitamente el contador)
 int keypressed(void) // devuelve algo pero no espera ningún argumento
+  
 {
-    // el valor del botón se establece según las variables
-    upBtn = digitalRead(UP);
-    downBtn = digitalRead(DOWN);
-    resetBtn = digitalRead(RESET);
-
-    // comprobar estado de botones
-
-    // NO PRESIONADO
-    if (upBtn)
+  // el valor del botón se establece según las variables
+  upBtn = digitalRead(UP);
+  downBtn = digitalRead(DOWN);
+  resetBtn = digitalRead(RESET);
+  
+  // comprobar estado de botones
+  
+  // NO PRESIONADO
+  if (upBtn)
+  {
+    upBtnPreview = 1;
+    /* si se lee el pin y me devuelve True (que significa que el botón
+    NO está siendo presionado), el estado anterior del botón
+    queda en True, o sea, que NO está presionado. Se repite abajo la misma lógica.
+    Si no presione nada, el estado anterior es NO PRESIONADO*/
+  }
+  if(downBtn)
+  {
+    downBtnPreview = 1;
+  }
+  if(resetBtn)
+  {
+    resetBtnPreview = 1;
+  }
+  
+  /* a continuación, si se lee el pin y me devuelve False (que significa
+  que el botón está siendo presionado) al mismo tiempo que
+  se lee el pin y me devuelve un valor diferente al estado anterior del botón (lo que
+  significa que en la iteración anterior el botón UP no estaba presionado),
+  entonces el estado anterior del botón se reemplaza por el estado actual (lo que
+  significa decir que ahora el UP está siendo apretado),
+  y me devuelve UP para ser usado posteriormente */
+  
+  // PRESIONADO
+  
+  if(upBtn == 0 && upBtn != upBtnPreview) /*si se presiona el botón y su valor actual
+  										  es distinto al valor anterior...*/
     {
-        upBtnPreview = 1;
-        /* si se lee el pin y me devuelve True (que significa que el botón
-        NO está siendo presionado), el estado anterior del botón
-        queda en True, o sea, que NO está presionado. Se repite abajo la misma lógica */
+      upBtnPreview = upBtn; // el estado anterior es mi estado actual
+      return UP; // devuelve la info (en este caso 3) de que el botón ha sido apretado
     }
-    if (downBtn)
+  if(downBtn == 0 && downBtn !=  downBtnPreview)
     {
-        downBtnPreview = 1;
+      downBtnPreview = downBtn;
+      return DOWN; // devuelve 2
     }
-    if (resetBtn)
+  if(resetBtn == 0 && resetBtn != resetBtnPreview)
     {
-        resetBtnPreview = 1;
+      resetBtnPreview = resetBtn;
+      return RESET; // devuelve 4
     }
-
-    /* a continuación, si se lee el pin y me devuelve False (que significa
-    que el botón está siendo presionado) al mismo tiempo que
-    se lee el pin y me devuelve un valor diferente al estado anterior del botón (lo que
-    significa que en la iteración anterior el botón UP no estaba presionado),
-    entonces el estado anterior del botón se reemplaza por el estado actual (lo que
-    significa decir que ahora el UP está siendo apretado),
-    y me devuelve UP para ser usado posteriormente */
-
-    // PRESIONADO
-    if (upBtn == 0 && upBtn != upBtnPreview) // si se presiona el botón...
-    {
-        upBtnPreview = upBtn;
-        return UP; // devuelve la info de que el botón ha sido apretado
-    }
-    if (downBtn == 0 && downBtn != downBtnPreview)
-    {
-        downBtnPreview = downBtn;
-        return DOWN;
-    }
-    if (resetBtn == 0 && resetBtn != resetBtnPreview)
-    {
-        resetBtnPreview = resetBtn;
-        return RESET;
-    }
-    return 0; // si no se toca nada, devuelve False
+  return 0; // si no se toca nada, devuelve False
 }
 
 // ---------------------------------------- //
 
-// 6. declaro función para controlar la visualización de los displays
-void turnDigitOn(int digit)
+//6. declaro función para controlar la visualización de los displays 
+void turnDigitOn(int digit) 
 {
-    /* según que digitos (de ahí el parámetro) han de encenderse,
-    los de la unidad o los de la decena, se desarrolla la función */
-
-    if (digit == ONE) // si el argumento que se pasa es la unidad...
-    {
-        // uso LOW para prender y HIGH para apagar porque los displays están en Cátodo común
-        digitalWrite(ONE, LOW);  // prendo unidad
-        digitalWrite(TEN, HIGH); // apago decena
-        delay(DEBOUNCE);         /* delay que evita el 'rebote' de los inputs, es decir
-                                ese efecto fantasma que aparece en los displays*/
-    }
-    else if (digit == TEN)
-    {
-        digitalWrite(ONE, HIGH);
-        digitalWrite(TEN, LOW);
-        delay(DEBOUNCE);
-    }
-    else
-    {
-        digitalWrite(ONE, HIGH);
-        digitalWrite(TEN, HIGH);
-    }
+  /* según que digitos (de ahí el parámetro) han de encenderse,
+  los de la unidad o los de la decena, se desarrolla la función */
+  
+  if(digit == ONE) // si el argumento que se pasa es A4 / la unidad...
+  {
+    digitalWrite(ONE, LOW); // prendo unidad (o sea, lo coloco en 0)
+    digitalWrite(TEN, HIGH); // apago decena
+    delay(DEBOUNCE); /* delay que evita el 'rebote' de los inputs, es decir
+    				ese efecto fantasma que aparece en los displays*/
+  }
+  else if(digit == TEN)
+  {
+    digitalWrite(ONE, HIGH); 
+    digitalWrite(TEN, LOW);
+    delay(DEBOUNCE);
+  }
+  else // acá después vamos a pasarle ALLOFF para apagar los displays
+  {
+    digitalWrite(ONE, HIGH);
+    digitalWrite(TEN, HIGH);
+  }
 }
 
 // ---------------------------------------- //
 
 // 7. declaro función para mostrar decenas y unidades secuencialmente
-void printCount(int count)
+void printCount(int count) 
 {
-    turnDigitOn(ALLOFF);                        // apago display
-    printDigit(count / 10);                     // obtengo el valor de la decena
-    turnDigitOn(TEN);                           // prendo la decena
-    turnDigitOn(ALLOFF);                        // apago display
-    printDigit(count - 10 * ((int)count / 10)); // obtengo el valor de la unidad
-    turnDigitOn(ONE);                           // prendo la unidad
+  turnDigitOn(ALLOFF); // apago display
+  printDigit(count/10); // obtengo el valor de la decena (me agarra solo el entero)
+  turnDigitOn(TEN); // prendo la decena
+  turnDigitOn(ALLOFF); // apago display
+  printDigit(count - 10 * ((int)count/10)); // obtengo el valor de la unidad
+  turnDigitOn(ONE); // prendo la unidad
 }
+
