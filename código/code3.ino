@@ -110,11 +110,12 @@ void loop()
     printCount(countDigit);
 
     getTemp(); // obtener temperatura
-
+	Serial.print("TEMPERATURA EN CELSIUS: ");
     Serial.println(temp, 1); // escribo "1" como segundo argumento para solo mostrar un solo dígito después de la coma
                              // muestro el valor del contador en el display
 	readPhotoSens = analogRead(PHOTOSENS);
   
+  	Serial.print("VALOR DE LA FOTORRESISTENCIA: ");
   	Serial.println(readPhotoSens, 1);
 }
 
