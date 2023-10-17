@@ -111,7 +111,7 @@ void loop()
 
     getTemp(); // obtener temperatura
 
-    //Serial.println(temp, 1); // escribo "1" como segundo argumento para solo mostrar un solo dígito después de la coma
+    Serial.println(temp, 1); // escribo "1" como segundo argumento para solo mostrar un solo dígito después de la coma
                              // muestro el valor del contador en el display
 	readPhotoSens = analogRead(PHOTOSENS);
   
@@ -354,13 +354,12 @@ void turnOffDisplay()
 // 10. declaro función obtener temperatura
 float getTemp()
 {
-    temp = map(analogRead(SENSORT), 0, 1023, -5000, 45000); // convertir a C°
-    /* map funciona de la siguiente forma:
+    temp = map(analogRead(SENSORT), 20, 350, -40, 125); // convertir a C°
+    /* el map funciona de la siguiente forma:
           leer valores del A3,
-          0 es el valor inicial del rango analogico
-          1023 es el valor final del rango analogico
-          -5000 es el nuevo valor inicial del rango para pasar a C°
-          45000 es el nuevo valor final del rango para pasar a C°
-          */
-    temp = temp / 100.00; // dar un valor más cercano al original
+          20 (100mV) es el valor inicial del rango analogico
+          350 (1750mV) es el valor final del rango analogico
+          -40 (C°) es el nuevo valor inicial del rango para pasar a C°
+          125 (C°) es el nuevo valor final del rango para pasar a C°
+          */// dar un valor más cercano al original
 }
