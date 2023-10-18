@@ -29,6 +29,7 @@
 #define SENSORT A3
 
 #define PHOTOSENS A2
+#define LED 12
 
 // ---------------------------------------- //
 
@@ -47,9 +48,6 @@ int sliderSwt = 1; // abajo está por defecto en 1
 // sensor de temperatura TMP
 float temp = 0;
 
-// fotoresistencia
-float readPhotoSens;
-
 // ---------------------------------------- //
 
 // 2. establezco la configuración principal
@@ -64,6 +62,7 @@ void setup()
     pinMode(UP, INPUT_PULLUP);
     pinMode(SLIDER, INPUT_PULLUP);
 
+  	pinMode(LED, OUTPUT);
     pinMode(C, OUTPUT);
     pinMode(D, OUTPUT);
     pinMode(E, OUTPUT);
@@ -110,13 +109,8 @@ void loop()
     printCount(countDigit);
 
     getTemp(); // obtener temperatura
-	Serial.print("TEMPERATURA EN CELSIUS: ");
-    Serial.println(temp, 1); // escribo "1" como segundo argumento para solo mostrar un solo dígito después de la coma
-                             // muestro el valor del contador en el display
-	readPhotoSens = analogRead(PHOTOSENS);
-  
-  	Serial.print("VALOR DE LA FOTORRESISTENCIA: ");
-  	Serial.println(readPhotoSens, 1);
+  	
+  	photoLed(); // obtener resistencia
 }
 
 // ---------------------------------------- //
@@ -350,7 +344,7 @@ void turnOffDisplay()
     digitalWrite(G, LOW);
 }
 
-// ---------------------------------------- //F
+// ---------------------------------------- //
 
 // 10. declaro función obtener temperatura
 float getTemp()
@@ -363,4 +357,26 @@ float getTemp()
           -40 (C°) es el nuevo valor inicial del rango para pasar a C°
           125 (C°) es el nuevo valor final del rango para pasar a C°
           */// dar un valor más cercano al original
+  	// Serial.print("TEMPERATURA EN CELSIUS: ");
+    // Serial.println(temp, 1); // escribo "1" como segundo argumento para solo mostrar un solo dígito después de la coma
+                             // muestro el valor del contador en el display
+}
+
+// ---------------------------------------- //
+
+// 11. declaro función para prender o apagar la luz del led
+void photoLed()
+{
+  int PHOTOSENSvalue = analogRead(PHOTOSENS);   
+  // Serial.print("VALOR DE LA FOTORRESISTENCIA: ");
+  // Serial.println(PHOTOSENSvalue, 1);
+  if(PHOTOSENSvalue <= 155) // si la luz llega a media intensidad, el LED se apaga
+      {
+       digitalWrite(LED, HIGH);
+      }
+
+  else
+      {
+        digitalWrite(LED, LOW);
+      }
 }
