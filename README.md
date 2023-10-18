@@ -28,7 +28,7 @@ La _estructura básica_ de la función es la siguiente:
   1) se apagan los displays
   2) se obtiene el valor de la decena mediante la división del entero count por diez (por ejemplo, si el numero es 23 me quedo con la parte entera al dividir, que es 2) y se prende la decena
   3) se apagan los displays
-  4) se obtiene el valor de la unidad mediante el calculo del entero count menos diez por el parseo del cálculo anteriormente mencionado  (por ejemplo, si el numero es 23 me quedo con la parte de la unidad al calcular, que es ) y se prende la decena
+  4) se obtiene el valor de la unidad mediante el calculo del entero count menos diez por el parseo del cálculo anteriormente mencionado  (por ejemplo, si el numero es 23 me quedo con la parte de la unidad) y se prende la decena
 ```python3
 void printCount(int count) 
 {
