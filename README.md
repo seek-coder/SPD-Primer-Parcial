@@ -97,5 +97,7 @@ A la parte (2) le agregué una [fotorresistencia](https://blog.330ohms.com/2020/
 
 Armamos un divisor de voltaje para pasar las variaciones de intensidad de luz a variaciones de tensión: desde la terminal n°1 alimentamos con 5V al componente y desde la terminal n°2 sacamos un cable hacia el primer polo de una resistencia de 220. El primer polo se conecta a la vez a la entrada analógica, y el otro polo se conecta a GND. La señal entonces se toma del punto de conexión entre la fotorresistencia y la resistencia de 220. En este caso el componente devuelve valores entre 1 (que corresponde a 6,11mV) y 310 (que corresponde a 1,51V) que significa el rango de valores de resistencia proporcional a la cantidad de luz que incide sobre la fotorresistencia. Mientras más luz haya, menos es el valor de la resistencia.
 
+Con fines demostrativos, agregué una función que refiere a un LED que se apaga llegada a media intensidad de luz. Se hace una lectura analógica del valor del pin de la fotorresistencia y en función de él se apaga o no el LED.
+
 ### II. LINK AL PROYECTO
 [SPD - Primer parcial - Proyecto de Arduino, Parte3](https://www.tinkercad.com/things/k21l70HxwcG)
