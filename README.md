@@ -89,8 +89,7 @@ Video explicativo (no es de nuestra autoría): [Control de motor de aficionado](
 
 ##
 ## PROYECTO - PARTE 3: Modificación según el Último Número de Documento (0-3, fotorresistencia)
-![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/f3738b97-43c2-48f6-b016-06551aa470bc)
-
+![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/a748d4da-e288-4423-aca2-fc705ff56156)
 
 ### I. DESCRIPCIÓN:
 A la parte (2) le agregué una [fotorresistencia](https://blog.330ohms.com/2020/05/16/como-conectar-una-fotoresistencia-ldr-a-arduino/) que no es más que un componente cuya resistencia disminuye o aumenta en función a la intensidad de luz que incide sobre ella.
