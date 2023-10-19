@@ -357,8 +357,8 @@ float getTemp()
           -40 (C°) es el nuevo valor inicial del rango para pasar a C°
           125 (C°) es el nuevo valor final del rango para pasar a C°
           */// dar un valor más cercano al original
-  	// Serial.print("TEMPERATURA EN CELSIUS: ");
-    // Serial.println(temp, 1); // escribo "1" como segundo argumento para solo mostrar un solo dígito después de la coma
+  	 Serial.print("TEMPERATURA EN CELSIUS: ");
+     Serial.println(temp, 1); // escribo "1" como segundo argumento para solo mostrar un solo dígito después de la coma
                              // muestro el valor del contador en el display
 }
 
@@ -368,9 +368,9 @@ float getTemp()
 void photoLed()
 {
   int PHOTOSENSvalue = analogRead(PHOTOSENS);   
-  // Serial.print("VALOR DE LA FOTORRESISTENCIA: ");
-  // Serial.println(PHOTOSENSvalue, 1);
-  if(PHOTOSENSvalue <= 155) // si la luz llega a media intensidad, el LED se apaga
+    Serial.print("VALOR DE LA FOTORRESISTENCIA: ");
+   Serial.println(PHOTOSENSvalue, 1);
+  if(PHOTOSENSvalue <= 930) // si la luz llega a media intensidad, el LED se apaga
       {
        digitalWrite(LED, HIGH);
       }
