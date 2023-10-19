@@ -83,14 +83,16 @@ bool primeDetect(int digit)
 ![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/87377c12-3684-44a5-8d99-e1ad2e115966)
 ![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/ac0f4a84-a532-4459-8716-a990b0908d72)
 
-Se ha agregado al proyecto un [motor de aficionado](https://techmake.com/blogs/tutoriales/empezando-con-arduino-5a-motores-dc) que entra en dependencia con la luz led de la fotorresistencia de manera tal que según la incidencia de luz del exterior, el motor arranque o se detenga. Si la luz se apaga, es indicador de que el motor también lo hará. Para controlar un motor de corriente continúa con Arduino, generalmente se utiliza como en este caso un controlador de motor puente H que tiene, como se representa en la imagen anterior, conexiones a tierra, salida, entrada, ingreso de voltaje y conexión a una entrada digital para prenderlo o apagarlo.
+Se agregará al proyecto un [motor de aficionado](https://techmake.com/blogs/tutoriales/empezando-con-arduino-5a-motores-dc) que entrará en dependencia con la luz led de la fotorresistencia de la parte 3 de manera tal que según la incidencia de luz del exterior, el motor arranque o se detenga. Si la luz se apaga, es indicador de que el motor también lo hará. Para controlar un motor de corriente continúa con Arduino, generalmente se utiliza como en este caso un controlador de motor puente H que tiene, como se representa en la imagen anterior, conexiones a tierra, salida, entrada, ingreso de voltaje y conexión a una entrada digital para prenderlo o apagarlo.
 
 ##
-## PROYECTO - PARTE 3: Modificación según el Último Número de Documento (0-3, fotorresistencia)
-![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/a748d4da-e288-4423-aca2-fc705ff56156)
+## PROYECTO - PARTE 3: Modificación según el Último Número de Documento (0-3, fotorresistencia) + motor de aficionado
+![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/b34b5f5b-228a-455a-9c15-7efe11251228)
+
 
 ### I. DESCRIPCIÓN:
 A la parte (2) le agregué una [fotorresistencia](https://blog.330ohms.com/2020/05/16/como-conectar-una-fotoresistencia-ldr-a-arduino/) que no es más que un componente cuya resistencia disminuye o aumenta en función a la intensidad de luz que incide sobre ella.
+Además, se ha vinculado a ella un motor de aficionado tal y como se describió en el apartado IV de la sección anterior.
 
 Armo un divisor de voltaje para pasar las variaciones de intensidad de luz a variaciones de tensión: desde la terminal n°1 alimentamos con 5V al componente y desde la terminal n°2 sacamos un cable hacia el primer polo de una resistencia de 10kΩ. El primer polo se conecta a la vez a la entrada analógica, y el otro polo se conecta a GND. La señal entonces se toma del punto de conexión entre la fotorresistencia y la resistencia de 10kΩ. En este caso el componente devuelve valores entre 1 (que corresponde a 264mV) y 974 (que corresponde a 4,76V) que significa el rango de valores de resistencia proporcional a la cantidad de luz que incide sobre la fotorresistencia. Mientras más luz haya, menos es el valor de la resistencia.
 
