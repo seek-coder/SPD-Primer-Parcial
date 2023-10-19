@@ -79,16 +79,12 @@ bool primeDetect(int digit)
 ### III. LINK AL PROYECTO
 [SPD - Primer parcial - Proyecto de Arduino, Parte2](https://www.tinkercad.com/things/cFFcPNF4vUZ)
 
-### IV. SUGERENCIA DE COMPONENTE ADICIONAL
+### IV. SOBRE EL COMPONENTE ADICIONAL
 ![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/87377c12-3684-44a5-8d99-e1ad2e115966)
 ![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/ac0f4a84-a532-4459-8716-a990b0908d72)
 
+Se podría agregar al proyecto un [motor de aficionado](https://techmake.com/blogs/tutoriales/empezando-con-arduino-5a-motores-dc) que entre en dependencia con la luz led de la fotorresistencia de manera tal que según la incidencia de luz del exterior, el motor arranque o se detenga. Para controlar un motor de corriente continúa con Arduino, generalmente se utiliza un puente H (H-bridge) o un módulo de control de motor que tiene conexiones a tierra, salida, entrada, ingreso de voltaje y conexión a tres pines..
 
-
-
-Se podría agregar al proyecto un [motor de aficionado](https://techmake.com/blogs/tutoriales/empezando-con-arduino-5a-motores-dc) que permita controlar, por ejemplo, ruedas integradas al Arduino de manera tal que pueda moverse por una zona e ir detectando las diferentes variaciones de temperaturas de la misma. Para controlar un motor de corriente continúa con Arduino, generalmente se utiliza un puente H (H-bridge) o un módulo de control de motor que tiene conexiones a tierra, salida, entrada, ingreso de voltaje y conexión a tres pines..
-
-Video explicativo (no es de nuestra autoría): [Control de motor de aficionado](https://youtu.be/srCOkz9Xgco)
 Link del motor en funcionamiento en arduino: [Motor de aficionado en Tinkercad] (https://www.tinkercad.com/things/6uOjY2MLyxg)
 
 ##
@@ -98,9 +94,18 @@ Link del motor en funcionamiento en arduino: [Motor de aficionado en Tinkercad] 
 ### I. DESCRIPCIÓN:
 A la parte (2) le agregué una [fotorresistencia](https://blog.330ohms.com/2020/05/16/como-conectar-una-fotoresistencia-ldr-a-arduino/) que no es más que un componente cuya resistencia disminuye o aumenta en función a la intensidad de luz que incide sobre ella.
 
-Armamos un divisor de voltaje para pasar las variaciones de intensidad de luz a variaciones de tensión: desde la terminal n°1 alimentamos con 5V al componente y desde la terminal n°2 sacamos un cable hacia el primer polo de una resistencia de 10kΩ. El primer polo se conecta a la vez a la entrada analógica, y el otro polo se conecta a GND. La señal entonces se toma del punto de conexión entre la fotorresistencia y la resistencia de 10kΩ. En este caso el componente devuelve valores entre 1 (que corresponde a 264mV) y 974 (que corresponde a 4,76V) que significa el rango de valores de resistencia proporcional a la cantidad de luz que incide sobre la fotorresistencia. Mientras más luz haya, menos es el valor de la resistencia.
+Armo un divisor de voltaje para pasar las variaciones de intensidad de luz a variaciones de tensión: desde la terminal n°1 alimentamos con 5V al componente y desde la terminal n°2 sacamos un cable hacia el primer polo de una resistencia de 10kΩ. El primer polo se conecta a la vez a la entrada analógica, y el otro polo se conecta a GND. La señal entonces se toma del punto de conexión entre la fotorresistencia y la resistencia de 10kΩ. En este caso el componente devuelve valores entre 1 (que corresponde a 264mV) y 974 (que corresponde a 4,76V) que significa el rango de valores de resistencia proporcional a la cantidad de luz que incide sobre la fotorresistencia. Mientras más luz haya, menos es el valor de la resistencia.
 
 Con fines demostrativos, agregué una función que refiere a un LED que se apaga llegada a media intensidad de luz. Se hace una lectura analógica del valor del pin de la fotorresistencia y en función de él se apaga o no el LED.
 
 ### II. LINK AL PROYECTO
 [SPD - Primer parcial - Proyecto de Arduino, Parte3](https://www.tinkercad.com/things/k21l70HxwcG)
+
+## PROYECTO - PARTE 4: Modificación según el Último Número de Documento (0-3, apagado y prendido)
+![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/cbd21da9-5f1b-46e8-b2d7-64ae2e577c52)
+
+### I. DESCRIPCIÓN:
+El switch pasó de cambiar de "modo contador" a "modo primos" a cambiar entre encendido y apagado: encendido funciona normalmente, mientras que en el otro estado todas las funciones, esto es, el display, el motor y los sensores, dejan de funcionar.
+
+
+
