@@ -1,4 +1,4 @@
-# PRIMER PARCIAL SPD
+# PRIMER PARCIAL SPD - BRAIAN CATRIEL GATTO
 ![ArduinoTinkercad](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/7484325e-8708-4f26-8f15-d5f662a15d8a)
 
 ## INTEGRANTES
