@@ -83,9 +83,7 @@ bool primeDetect(int digit)
 ![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/87377c12-3684-44a5-8d99-e1ad2e115966)
 ![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/ac0f4a84-a532-4459-8716-a990b0908d72)
 
-Se podría agregar al proyecto un [motor de aficionado](https://techmake.com/blogs/tutoriales/empezando-con-arduino-5a-motores-dc) que entre en dependencia con la luz led de la fotorresistencia de manera tal que según la incidencia de luz del exterior, el motor arranque o se detenga. Para controlar un motor de corriente continúa con Arduino, generalmente se utiliza un puente H (H-bridge) o un módulo de control de motor que tiene conexiones a tierra, salida, entrada, ingreso de voltaje y conexión a tres pines..
-
-Link del motor en funcionamiento en arduino: [Motor de aficionado en Tinkercad] (https://www.tinkercad.com/things/6uOjY2MLyxg)
+Se ha agregado al proyecto un [motor de aficionado](https://techmake.com/blogs/tutoriales/empezando-con-arduino-5a-motores-dc) que entra en dependencia con la luz led de la fotorresistencia de manera tal que según la incidencia de luz del exterior, el motor arranque o se detenga. Si la luz se apaga, es indicador de que el motor también lo hará. Para controlar un motor de corriente continúa con Arduino, generalmente se utiliza como en este caso un controlador de motor puente H que tiene, como se representa en la imagen anterior, conexiones a tierra, salida, entrada, ingreso de voltaje y conexión a una entrada digital para prenderlo o apagarlo.
 
 ##
 ## PROYECTO - PARTE 3: Modificación según el Último Número de Documento (0-3, fotorresistencia)
