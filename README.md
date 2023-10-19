@@ -105,7 +105,9 @@ Con fines demostrativos, agregué una función que refiere a un LED que se apaga
 ![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/cbd21da9-5f1b-46e8-b2d7-64ae2e577c52)
 
 ### I. DESCRIPCIÓN:
-El switch pasó de cambiar de "modo contador" a "modo primos" a cambiar entre encendido y apagado: encendido funciona normalmente, mientras que en el otro estado todas las funciones, esto es, el display, el motor y los sensores, dejan de funcionar.
+El switch pasó de cambiar de "modo contador" a "modo primos" a cambiar entre encendido y apagado: encendido funciona normalmente, mientras que en el otro estado todas las funciones, esto es, el display, el motor y los sensores, dejan de funcionar. Esto se logra mediante modificaciones mínimas en la función ```printCount()``` y en las funciones de temperatura y fotorresistencia, fundamentalmente añadiendo condiciones como se aprecia en las lineas 369 y 383.
 
+### II. LINK AL PROYECTO:
+[SPD - Primer parcial - Proyecto de Arduino, Parte4](https://www.tinkercad.com/things/grMMHBhBmNL)
 
 
