@@ -81,9 +81,11 @@ bool primeDetect(int digit)
 
 ### IV. SUGERENCIA DE COMPONENTE ADICIONAL
 ![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/87377c12-3684-44a5-8d99-e1ad2e115966)
+![image](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/caa7e3cd-cfbe-4f10-9c23-28d1576aebb5)
 
 
-Se podría agregar al proyecto un [motor de aficionado](https://techmake.com/blogs/tutoriales/empezando-con-arduino-5a-motores-dc) que permita controlar, por ejemplo, ruedas integradas al Arduino de manera tal que pueda moverse por una zona e ir detectando las diferentes variaciones de temperaturas de la misma. Para controlar un motor de corriente continúa con Arduino, generalmente se utiliza un puente H (H-bridge) o un módulo de control de motor.
+
+Se podría agregar al proyecto un [motor de aficionado](https://techmake.com/blogs/tutoriales/empezando-con-arduino-5a-motores-dc) que permita controlar, por ejemplo, ruedas integradas al Arduino de manera tal que pueda moverse por una zona e ir detectando las diferentes variaciones de temperaturas de la misma. Para controlar un motor de corriente continúa con Arduino, generalmente se utiliza un puente H (H-bridge) o un módulo de control de motor que tiene conexiones a tierra, salida, entrada, ingreso de voltaje y conexión a tres pines..
 
 Video explicativo (no es de nuestra autoría): [Control de motor de aficionado](https://youtu.be/srCOkz9Xgco)
 
