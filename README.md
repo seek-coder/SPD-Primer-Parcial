@@ -1,7 +1,7 @@
 # PRIMER PARCIAL SPD - BRAIAN CATRIEL GATTO
 ![ArduinoTinkercad](https://github.com/seek-coder/SPD-Primer-Parcial/assets/130781541/7484325e-8708-4f26-8f15-d5f662a15d8a)
 
-## INTEGRANTES
+## INTEGRANTES DEL GRUPO PARA PARTES 1 Y 2
 + Braian Catriel Gatto
 + Leandro Gómez
 + Rocío Gómez
