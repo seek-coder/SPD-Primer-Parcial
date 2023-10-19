@@ -111,6 +111,8 @@ void loop()
     getTemp(); // obtener temperatura
   	
   	photoLed(); // obtener resistencia
+  
+  	digitalWrite(4, HIGH); // ENTRADA 1 del motor
 }
 
 // ---------------------------------------- //
